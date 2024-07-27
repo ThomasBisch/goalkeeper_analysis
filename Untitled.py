@@ -13,12 +13,12 @@ df = pd.read_excel(file_url)
 mean_x = df['Shots Against per 90'].mean()
 mean_y = df['Goals Prevented %'].mean()
 
-# Load the custom font
-custom_font_path = r"C:\Users\tombi\Downloads\FreeSans.ttf"  # Make sure to upload this font file as well
+# Load the custom font from GitHub
+custom_font_path = "https://raw.githubusercontent.com/ThomasBisch/goalkeeper_analysis/main/FreeSans.ttf"
 custom_font = fm.FontProperties(fname=custom_font_path, size=24)  # Increased font size
 
-# Load the custom bold font for the title
-bold_font_path = r"C:\Users\tombi\Downloads\AlegreyaSans-Bold.ttf"  # Make sure to upload this font file as well
+# Load the custom bold font for the title from GitHub
+bold_font_path = "https://raw.githubusercontent.com/ThomasBisch/goalkeeper_analysis/main/AlegreyaSans-Bold.ttf"
 bold_font = fm.FontProperties(fname=bold_font_path, size=40)  # Increased font size
 
 # Streamlit app
