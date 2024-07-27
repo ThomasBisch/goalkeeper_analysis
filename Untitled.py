@@ -5,20 +5,20 @@ import matplotlib.font_manager as fm
 import matplotlib.patheffects as path_effects
 from highlight_text import fig_text
 
-# Load data from Excel file
-file_path = r"C:\Users\tombi\Downloads\GK_MAIN_DB.xlsx"
-df = pd.read_excel(file_path)
+# Load data from GitHub
+file_url = "https://raw.githubusercontent.com/ThomasBisch/goalkeeper_analysis/main/GK_MAIN_DB.xlsx"
+df = pd.read_excel(file_url)
 
 # Calculate the means for the x and y axes
 mean_x = df['Shots Against per 90'].mean()
 mean_y = df['Goals Prevented %'].mean()
 
 # Load the custom font
-custom_font_path = r"C:\Users\tombi\Downloads\FreeSans.ttf"
+custom_font_path = r"C:\Users\tombi\Downloads\FreeSans.ttf"  # Make sure to upload this font file as well
 custom_font = fm.FontProperties(fname=custom_font_path, size=24)  # Increased font size
 
 # Load the custom bold font for the title
-bold_font_path = r"C:\Users\tombi\Downloads\AlegreyaSans-Bold.ttf"
+bold_font_path = r"C:\Users\tombi\Downloads\AlegreyaSans-Bold.ttf"  # Make sure to upload this font file as well
 bold_font = fm.FontProperties(fname=bold_font_path, size=40)  # Increased font size
 
 # Streamlit app
