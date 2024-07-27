@@ -4,6 +4,22 @@ import matplotlib.pyplot as plt
 import matplotlib.font_manager as fm
 import matplotlib.patheffects as path_effects
 from highlight_text import fig_text
+import requests
+
+# Function to download a file from a URL
+def download_file(url, filename):
+    response = requests.get(url)
+    response.raise_for_status()  # Check for request errors
+    with open(filename, 'wb') as file:
+        file.write(response.content)
+
+# URLs of the font files
+free_sans_url = "https://raw.githubusercontent.com/ThomasBisch/goalkeeper_analysis/main/FreeSans.ttf"
+alegreya_sans_bold_url = "https://raw.githubusercontent.com/ThomasBisch/goalkeeper_analysis/main/AlegreyaSans-Bold.ttf"
+
+# Download the font files
+download_file(free_sans_url, "FreeSans.ttf")
+download_file(alegreya_sans_bold_url, "AlegreyaSans-Bold.ttf")
 
 # Load data from GitHub
 file_url = "https://raw.githubusercontent.com/ThomasBisch/goalkeeper_analysis/main/GK_MAIN_DB.xlsx"
@@ -13,12 +29,12 @@ df = pd.read_excel(file_url)
 mean_x = df['Shots Against per 90'].mean()
 mean_y = df['Goals Prevented %'].mean()
 
-# Load the custom font from GitHub
-custom_font_path = "https://raw.githubusercontent.com/ThomasBisch/goalkeeper_analysis/main/FreeSans.ttf"
+# Load the custom font from the downloaded files
+custom_font_path = "FreeSans.ttf"
 custom_font = fm.FontProperties(fname=custom_font_path, size=24)  # Increased font size
 
-# Load the custom bold font for the title from GitHub
-bold_font_path = "https://raw.githubusercontent.com/ThomasBisch/goalkeeper_analysis/main/AlegreyaSans-Bold.ttf"
+# Load the custom bold font for the title from the downloaded files
+bold_font_path = "AlegreyaSans-Bold.ttf"
 bold_font = fm.FontProperties(fname=bold_font_path, size=40)  # Increased font size
 
 # Streamlit app
