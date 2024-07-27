@@ -1,9 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[9]:
-
-
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -35,8 +29,8 @@ st.markdown("""
 ## Instructions
 
 1. **Load Data**: Locate the player you want. There is a search toggle in the top right, where you can search for the player or club.
-2. **Input Player Details**: you can copy+paste from table above, relating to the player, team & age.
-3. **Generate Plot**: Once all the relevant information is inputted, you can press enter and the scatter plot will automatically update to highlight the selected player.
+2. **Input Player Details**: You can copy and paste from the table above, related to the player, team, and age.
+3. **Generate Plot**: Once all the relevant information is inputted, press enter, and the scatter plot will automatically update to highlight the selected player.
 """)
 
 # Display the table of players
@@ -141,22 +135,3 @@ def create_plot(player_name, player_team, player_age):
 # Call the function to create and display the plot based on user input
 if player_name and player_team and player_age:
     create_plot(player_name, player_team, player_age)
-
-
-# In[10]:
-
-
-get_ipython().system('jupyter nbconvert --to script Untitled.ipynb')
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
